@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Активировать сертификат
+{% endblock %}
+
+{% block menu %}
+  {% for cat in categories %}
+    <li>
+      <a href="{% url "program-list" cat.id %}">
+        <div class="text">{{cat.name}}</div>
+      </a>
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block content-title %}
+<h2>Активация сертификата</h2>
+{% endblock %}
+
+{% block content %}
+<!-- Контейнер -->
+<div class="row product-container">
+  <div class="col-xs-12">
+    <div class="row text-center" >
+      <h1>Введите код сертификата</h1>
+      <form method="POST" class="post-form">
+         <div class="form-group">
+          {% csrf_token %}
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="save btn btn-success btn-lg">Активировать</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$( document ).ready(function() {
+  $("#id_number").addClass("form-control")
+})
+</script>
+
+{% endblock %}

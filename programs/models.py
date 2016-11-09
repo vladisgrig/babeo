@@ -7,6 +7,8 @@ class Program(models.Model):
     description = models.TextField(verbose_name="Описание")
     is_active = models.BooleanField(verbose_name="Программа действует")
     category = models.ForeignKey('Category')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    photo = models.ImageField(upload_to='images/programs/')
 
     def __str__(self):
         return "{0}".format(self.title)

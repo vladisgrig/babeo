@@ -1,0 +1,163 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: #b5def2;
+  font-size: 16px;
+}
+
+*, .row {
+  padding: 0;
+  margin: 0;
+}
+
+div.navbar-row {
+  background-color: #0290d4;
+}
+
+.navbar-brand, .navbar-brand:hover, .navbar-brand:focus {
+    font-size: 30px;
+    color: #fff;
+}
+
+.nav>li>a, .nav>li>a:hover, .nav>li>a:visited, .nav>li>a:focus  {
+  color: #fff;
+  background-color: transparent;
+}
+
+ul.menu {
+  height: 56px;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  background: linear-gradient(rgba(82, 177, 198, 0.5), rgba(59,122,146,0.5));
+  margin: 0;
+}
+ul.menu>li {
+  float: left;
+  height: 55px;
+  list-style: none;
+  border-right: 0.25px solid rgba(255,255,255,0.3);
+
+}
+
+ul.menu>li>a {
+  color: #fff;
+}
+
+ul.menu .text {
+  line-height: 36px;
+  padding: 10px 22px 0px;
+}
+
+ul.menu>li.active {
+  background-color: #F2F2F2;
+}
+
+ul.menu>li:first-child{
+  border-top-left-radius: 17px;
+}
+
+ul.menu>li.active>a {
+  color: #23527c;
+}
+
+ul.menu #activation {
+  float:right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+
+.tab-header, .product-container {
+  background-color: #F2F2F2;
+}
+
+.tab-header>h2 {
+  margin:10px 0px 10px 35px;
+  font-size: 26px;
+  line-height: 1.5;
+  color: #23527c;
+}
+
+
+.product-container {
+  padding-bottom: 15px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+}
+.product {
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #E4E4E4;
+  width: 395px;
+  padding: 8px 11px;
+}
+
+.product:hover {
+  box-shadow: rgba(0,0,0,0.35) 0 0 7px;
+}
+
+.product.left {
+  float: left;
+  margin-left: 30px;
+}
+
+.product > h2 {
+  margin: 0;
+  padding-bottom: 230px;
+  font-size: 16px;
+}
+
+.product > h2 > a:focus, .product > h2 > a:hover {
+  text-decoration: none;
+}
+
+.product .product-content {
+  position: absolute;
+  bottom: 5px;
+  padding-top: 0px;
+
+}
+
+.product .product-content img {
+  border-radius: 6px;
+  width: 97%;
+  height: 180px;
+}
+
+.product .product-content .info {
+  padding-top: 5px;
+}
+
+.product .product-content .info .price{
+  float: left;
+  padding: 0 14px 5px;
+  margin-top: 8px;
+  color: #23527c;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.product .product-content .info a {
+  float: right;
+  margin: 0 14px;
+}
+
+.program-row {
+  margin-left: 30px;
+}
+
+.program-row img {
+  width: 60%;
+  margin-right: 30px;
+  border: 3px solid  #23527c;
+  border-radius: 8px;
+  float: left;
+}
+
+.program-row .price {
+  padding-left: 30px;
+  font-size: 30px;
+  color: #0290d4;
+  font-weight: 700;
+}

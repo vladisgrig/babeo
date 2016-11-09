@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{% static 'main.css' %}">
+
+  <title> {% block title %} {% endblock %}| Babeo</title>
+</head>
+<body>
+  <!-- Навигация -->
+  <div class="navbar-row">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">
+                Babeo
+              </a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Войти</a></li>
+              <li><a href="#">Зарегистрироваться</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Основной блок -->
+  <div class="container">
+
+
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <!-- Меню -->
+          <ul class="menu">
+            {% block menu %}
+            {% endblock %}
+            <a id="activation" class="btn btn-success" href="{% url 'activate_sertificate' %}">Активировать сертификат</a>
+          </ul>
+
+          <!-- Заголовок -->
+          <div class="row tab-header">
+            {% block content-title %}
+            <h2>Хиты продаж</h2>
+            {% endblock %}
+          </div>
+
+          {% block content %}
+          {% endblock %}
+
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+  </div>
+
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

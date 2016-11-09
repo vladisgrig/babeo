@@ -1,19 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  Hello world!
-  <br>
-  <h2>Категория: {{ category.name }}</h2>
-  <ul>
-  {% for program in programs %}
-    <li>{{ program.title }}</li>
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ category.name }}
+{% endblock %}
+
+{% block menu %}
+  {% for cat in categories %}
+    {% if cat == category %}
+      <li class="active">
+    {% else %}
+      <li>
+    {% endif %}
+      <a href="{% url "program-list" cat.id %}">
+        <div class="text">{{cat.name}}</div>
+      </a>
+    </li>
   {% endfor %}
-  </ul>
-</body>
-</html>
+{% endblock %}
+
+{% block content %}
+          <!-- Контейнер -->
+          <div class="row product-container">
+            <div class="col-xs-12">
+              <div class="row">
+                {% for program in programs %}
+                <div class="col-md-6 product left">
+                  <h2><a href="{% url "program" id=program.pk %}">{{program.title}}</a></h2>
+                  <div class="product-content">
+                    <a href="{% url "program" id=program.pk %}">
+                      <img src="{{MEDIA_URL}}{{program.photo.url}}" alt="">
+                    </a>
+                    <div class="info">
+                      <div class="price">
+                        {{program.price|floatformat:"-2"}} руб.
+                      </div>
+                      <a href="{% url "program" id=program.pk %}" class="btn btn-default">Посмотреть</a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+{% endblock %}

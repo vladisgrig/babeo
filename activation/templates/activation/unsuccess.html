@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Неуспешная активация
+{% endblock %}
+
+{% block menu %}
+  {% for cat in categories %}
+    <li>
+      <a href="{% url "program-list" cat.id %}">
+        <div class="text">{{cat.name}}</div>
+      </a>
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block content-title %}
+<h2>Активация сертификата</h2>
+{% endblock %}
+
+{% block content %}
+<!-- Контейнер -->
+<div class="row product-container">
+  <div class="col-xs-12">
+    <div class="row text-center" >
+      <h1 class="alert alert-danger" role="alert">Указанного сертификата не существует</h1>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

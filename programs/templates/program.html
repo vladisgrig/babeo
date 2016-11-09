@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{program.title}} | {{ category.name }}
+{% endblock %}
+
+{% block menu %}
+  {% for cat in categories %}
+    {% if cat == category %}
+      <li class="active">
+    {% else %}
+      <li>
+    {% endif %}
+      <a href="{% url "program-list" cat.id %}">
+        <div class="text">{{cat.name}}</div>
+      </a>
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block content-title %}
+<h2>{{program.title}}</h2>
+{% endblock %}
+
+{% block content %}
+
+<!-- Контейнер -->
+<div class="row product-container">
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="program-row">
+          <img src="{{MEDIA_URL}}{{program.photo.url}}" alt="">
+          <div class="price">
+            {{program.price|floatformat:"-2"}} руб.
+          </div>
+          <a href="#" class="btn btn-success btn-lg">Купить</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="program-row">
+        <h2>Описание</h2>
+        <p>{{program.description}}</p>
+      <div>
+    </div>
+
+      {% for program in programs %}
+      <div class="col-md-6 product left">
+        <h2><a href="{% url "program" id=program.pk %}">{{program.title}}</a></h2>
+        <div class="product-content">
+          <a href="{% url "program" id=program.pk %}">
+            <img src="https://assets02.groupon-cdn.ru/system/offers/000/581/221/small_promo_770d534fd2f9.jpg" alt="">
+          </a>
+          <div class="info">
+            <div class="price">
+              {{program.price|floatformat:"-2"}} руб.
+            </div>
+            <a href="{% url "program" id=program.pk %}" class="btn btn-default">Посмотреть</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- <div class="col-md-6 product right">
+        <h2><a href="">Суперакция лечение зубов со скидкой</a></h2>
+      </div> -->
+    </div>
+  </div>
+</div>
+{% endblock %}
