@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include("programs.urls")),
     url(r'^activation/', include("activation.urls")),
+    url(r'^user/', include("userManagementApp.urls")),
 ]
 
 if settings.DEBUG:

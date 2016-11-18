@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Зарегистрируйтесь
+{% endblock %}
+
+{% block content-title %}
+<h2>Заполните для регистрации:</h2>
+{% endblock %}
+
+{% block content %}
+<div class="row product-container">
+  <div class="col-xs-12">
+    <div class="row text-center" >
+      <form method="POST" role="form" action="/user/registration/">{% csrf_token %}
+        <table>
+          {% for field in form %}
+          <tr>
+            <td>{{ field.label_tag }}</td>
+            <td>
+              <div>
+                <ul>
+                  {% for error in field.errors %}
+                  <li class="error">errors: {{ error }}</li>
+                  {% endfor %}
+                  {{ field }}
+                </ul>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        <button type="submit" class="btn btn-success btn-lg">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

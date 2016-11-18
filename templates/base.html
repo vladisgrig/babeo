@@ -30,8 +30,14 @@
               </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Войти</a></li>
-              <li><a href="#">Зарегистрироваться</a></li>
+              {% if not user.is_authenticated %}
+              <li><a href="/user/">Войти</a></li>
+              <li><a href="/user/reg/">Зарегистрироваться</a></li>
+              {% else %}
+              <li><a href="/user/">{{user.username}}</a></li>
+              <li><a href="/user/logout">Выйти</a></li>
+              {% endif %}
+
             </ul>
           </div>
           <div class="col-md-2"></div>
